@@ -12,33 +12,5 @@
     "title": "About",
     "section": "",
     "text": "About this site"
-  },
-  {
-    "objectID": "projects.html",
-    "href": "projects.html",
-    "title": "Projects",
-    "section": "",
-    "text": "Here’s a showcase of some projects I’ve worked on:\n\n\nA Streamlit web app that predicts whether a customer is likely to churn.\n\n🔗 Try the app\n📄 Read the notebook\n\n\n\n\n\nAn LSTM-based deep learning model for time-series forecasting.\n\n📄 Notebook\n\n\n\n\n\nA project analyzing tweets for sentiment polarity using BERT.\n\n🔗 Project GitHub Repo"
-  },
-  {
-    "objectID": "projects.html#credit-card-churn-analysis",
-    "href": "projects.html#credit-card-churn-analysis",
-    "title": "Projects",
-    "section": "",
-    "text": "A Streamlit web app that predicts whether a customer is likely to churn.\n\n🔗 Try the app\n📄 Read the notebook"
-  },
-  {
-    "objectID": "projects.html#stock-price-forecasting",
-    "href": "projects.html#stock-price-forecasting",
-    "title": "Projects",
-    "section": "",
-    "text": "An LSTM-based deep learning model for time-series forecasting.\n\n📄 Notebook"
-  },
-  {
-    "objectID": "projects.html#sentiment-analysis-nlp",
-    "href": "projects.html#sentiment-analysis-nlp",
-    "title": "Projects",
-    "section": "",
-    "text": "A project analyzing tweets for sentiment polarity using BERT.\n\n🔗 Project GitHub Repo"
   }
 ]
