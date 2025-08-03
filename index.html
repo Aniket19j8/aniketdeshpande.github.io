@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aniket Deshpande | Data Scientist</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0f0f0f;
+      color: #f2f2f2;
+    }
+    header {
+      background: #1a1a1a;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    nav a {
+      color: #f2f2f2;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #00ffcc;
+    }
+    section {
+      padding: 80px 20px;
+      min-height: 100vh;
+    }
+    .hero {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        background-image: linear-gradient(to top, #0f0f0f, #1f1f1f);
+        height: 100vh;
+        padding: 20px 40px 80px 40px;
+        box-sizing: border-box;
+        
+
+    }
+    .hero h2 {
+        font-size: 75px;
+        margin-bottom: 0;
+    }
+
+    .hero h3 {
+        font-size: 28px;
+        font-weight: 400;
+        margin-top: 10px;
+        margin-bottom: 40px; /* adds breathing room below subheading */
+        padding-left: 4px;
+    }
+
+    .hero p {
+        font-size: 15px;
+        max-width: 700px;
+        line-height: 1.6;
+        margin-bottom: 3px; /* reduced spacing between paragraphs */
+        color: #dcdcdc;
+    }
+    .hero-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        gap: 40px;
+        position: relative; /* Enable absolute positioning inside */
+    }
+
+
+    .hero-left {
+        flex: 2;
+    }
+
+    
+    .hero-right {
+        flex: 1;
+        display: flex;
+        flex-direction: column; /* stack image and icons vertically */
+        justify-content: flex-start;  /* align items to the top */
+        align-items: center;          /* center horizontally */
+        padding-top: 0px;
+        margin-top: -150px;
+        transform: translateX(-50px);
+            }
+    .divider {
+        position: absolute;
+        top: 2%;
+        bottom: 5%;
+        left: 57%;
+        width: 1px;
+        background-color: rgba(255, 255, 255, 0.925); /* soft white line */
+        z-index: 0;
+        opacity: 0.3;
+    }
+
+    .profile-pic {
+        width: 320px;
+        height: 320px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid #00ffcc;
+        box-shadow: 0 0 20px rgba(0, 255, 204, 0.4);
+    }
+    .scroll-note {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        font-size: 0.9rem;
+        color: #888;
+        opacity: 0.85;
+        z-index: 999;
+        transition: opacity 0.5s ease;
+    }
+    .scroll-note.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+    .typed {
+        font-size: 17px;
+        max-width: 700px;
+        line-height: 1.5;
+        color: #dcdcdc;
+        white-space: pre-line;
+        min-height: 200px;
+    }
+    .buttons {
+      margin-top: 30px;
+    }
+    .buttons a {
+      background: #00ffcc;
+      color: #0f0f0f;
+      padding: 10px 20px;
+      margin: 10px 10px 0 0;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .buttons a:hover {
+      background: #00ccaa;
+    }
+    .social-icons {
+        margin-top: 60px;
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+    }
+
+    .social-icons a img {
+        width: 30px;
+        height: 30px;
+        filter: brightness(0) invert(1); /* makes icons white if they're black SVGs */
+        transition: transform 0.2s ease;
+    }
+    .tooltip {
+        opacity: 0;
+        visibility: hidden;
+        font-size: 12px;
+        background-color: #222;
+        color: #fff;
+        padding: 4px 8px;
+        border-radius: 4px;
+        position: absolute;
+        bottom: -25px;
+        white-space: nowrap;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+    
+    .icon-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .icon-container:hover .tooltip {
+        opacity: 1;
+        visibility: visible;
+    }
+    .social-icons a:hover img {
+        transform: scale(1.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      background: #1a1a1a;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Aniket Deshpande</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#resume">Resume</a>
+      <a href="#videos">Videos</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+  <h2>Aniket Deshpande</h2>
+  <h3>Data Scientist & Machine Learning Engineer</h3>
+
+  <div class="hero-content">
+    <div class="hero-left">
+      <div id="typed-text" class="typed"></div>
+
+      <div class="buttons">
+        <a href="#projects">View Projects</a>
+        <a href="#resume">Download Resume</a>
+      </div>
+
+      <p class="scroll-note">Scroll to see more ↓</p>
+    </div>
+    <div class="divider"></div> <!-- new vertical line -->
+    <div class="hero-right">
+   
+      <img src="assets/img/me1.jpg" alt="Aniket Deshpande" class="profile-pic" />
+        <div class="social-icons">
+                <div class="icon-container">
+                    <a href="https://www.linkedin.com/in/aniket-rajendra-deshpande-88750b257" target="_blank" aria-label="LinkedIn">
+                    <img src="assets/icons/linkedin.svg" alt="LinkedIn" />
+                    </a>
+                </div>
+                
+                <div class="icon-container">
+                    <a href="mailto:adeshp@asu.edu" aria-label="Email">
+                    <img src="assets/icons/email.svg" alt="Email" />
+                    </a>
+                    <span class="tooltip">adeshp@asu.edu</span>
+                </div>
+                
+                <div class="icon-container">
+                    <a href="tel:+14807960191" aria-label="Phone">
+                    <img src="assets/icons/phone.svg" alt="Phone" />
+                    </a>
+                    <span class="tooltip">+1 (480) 796-0191</span>
+                </div>
+                
+                <div class="icon-container">
+                    <a href="https://github.com/Aniket19j8" target="_blank" aria-label="GitHub">
+                    <img src="assets/icons/github.svg" alt="GitHub" />
+                    </a>
+                </div>
+        </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <p>Showcase of selected machine learning apps and data visualizations.</p>
+    <!-- Add project cards or images here -->
+  </section>
+
+  <section id="resume">
+    <h2>Resume</h2>
+    <iframe src="assets/resume.pdf" width="100%" height="600px" style="border: none;"></iframe>
+  </section>
+
+  <section id="videos">
+    <h2>Videos</h2>
+    <p>Watch walkthroughs and presentations of my work.</p>
+    <!-- Embed YouTube or video elements here -->
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>A brief introduction, background, and interests.</p>
+  </section>
+
+  <footer>
+    © 2025 Aniket Deshpande
+  </footer>
+  <script>
+  const scrollNote = document.querySelector('.scroll-note');
+  const aboutSection = document.querySelector('#about');
+
+  window.addEventListener('scroll', () => {
+    const rect = aboutSection.getBoundingClientRect();
+    const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+
+    if (isVisible) {
+      scrollNote.classList.add('hidden');
+    } else {
+      scrollNote.classList.remove('hidden');
+    }
+  });
+</script>
+<script>
+  const typedTextElement = document.getElementById('typed-text');
+  const fullText = `Hey there! Welcome to my portfolio! I’m Aniket, a curious mind with a passion for data and machine learning.
+
+A quick tour guide: you’ll find a curated selection of projects I’ve worked on (just the ones I thought you’d enjoy exploring most), along with a few short videos where I break down some core Data Science and ML concepts in my own words.
+
+You can also download my resume, and if you're interested, head over to the About section where I’ve detailed the courses I’ve taken so far, my academic journey, and yes — my GPA too.
+
+Hope you enjoy the visit!`;
+
+  let index = 0;
+
+  function typeText() {
+    if (index < fullText.length) {
+      typedTextElement.textContent += fullText.charAt(index);
+      index++;
+      setTimeout(typeText, 30); // Speed of typing (lower is faster)
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    typeText();
+  });
+</script>
+
+
+</body>
+</html>
