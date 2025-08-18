@@ -4,285 +4,423 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aniket Deshpande | Data Scientist</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Favicon & App Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+  <link rel="icon" href="assets/icons/favicon.ico">
+  <link rel="manifest" href="assets/icons/site.webmanifest">
+  <meta name="theme-color" content="#ffffff">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Roboto', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #0f0f0f;
-      color: #f2f2f2;
+      margin: 0; padding: 0;
+      background-color: #0f0f0f; color: #f2f2f2;
     }
+
+    /* ---------- Header ---------- */
     header {
-      background: #1a1a1a;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      background:#1a1a1a; padding:20px 40px;
+      display:flex; justify-content:space-between; align-items:center;
+      position:sticky; top:0; z-index:1000;
     }
-    header h1 {
-      margin: 0;
-      font-size: 24px;
-    }
+    header h1 { margin:0; font-size:24px; }
     nav a {
-      color: #f2f2f2;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: bold;
+      color:#f2f2f2; text-decoration:none; margin-left:20px; font-weight:bold;
     }
-    nav a:hover {
-      color: #00ffcc;
-    }
-    section {
-      padding: 80px 20px;
-      min-height: 100vh;
-    }
+    nav a:hover { color:#00ffcc; }
+
+    /* ---------- Sections (tighter spacing) ---------- */
+    section { padding:60px 20px; }
+
+    /* ---------- Hero ---------- */
     .hero {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: left;
-        background-image: linear-gradient(to top, #0f0f0f, #1f1f1f);
-        height: 100vh;
-        padding: 20px 40px 80px 40px;
-        box-sizing: border-box;
-        
-
+      position:relative; display:flex; flex-direction:column; justify-content:center;
+      text-align:left; background-image:linear-gradient(to top,#0f0f0f,#1f1f1f);
+      padding:20px 40px 80px 40px; box-sizing:border-box;
     }
-    .hero h2 {
-        font-size: 75px;
-        margin-bottom: 0;
-    }
+    .hero h2 { font-size:75px; margin-bottom:0; }
+    .hero h3 { font-size:28px; font-weight:400; margin:10px 0 40px; padding-left:4px; }
+    .hero p { font-size:15px; max-width:700px; line-height:1.6; margin-bottom:3px; color:#dcdcdc; }
 
-    .hero h3 {
-        font-size: 28px;
-        font-weight: 400;
-        margin-top: 10px;
-        margin-bottom: 40px; /* adds breathing room below subheading */
-        padding-left: 4px;
-    }
-
-    .hero p {
-        font-size: 15px;
-        max-width: 700px;
-        line-height: 1.6;
-        margin-bottom: 3px; /* reduced spacing between paragraphs */
-        color: #dcdcdc;
-    }
-    .hero-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        gap: 40px;
-        position: relative; /* Enable absolute positioning inside */
-    }
-
-
-    .hero-left {
-        flex: 2;
-    }
-
-    
+    .hero-content { display:flex; justify-content:space-between; align-items:center; width:100%; gap:40px; position:relative; }
+    .hero-left { flex:2; }
     .hero-right {
-        flex: 1;
-        display: flex;
-        flex-direction: column; /* stack image and icons vertically */
-        justify-content: flex-start;  /* align items to the top */
-        align-items: center;          /* center horizontally */
-        padding-top: 0px;
-        margin-top: -150px;
-        transform: translateX(-50px);
-            }
-    .divider {
-        position: absolute;
-        top: 2%;
-        bottom: 5%;
-        left: 57%;
-        width: 1px;
-        background-color: rgba(255, 255, 255, 0.925); /* soft white line */
-        z-index: 0;
-        opacity: 0.3;
+      flex:1; display:flex; flex-direction:column; justify-content:flex-start; align-items:center;
+      padding-top:0; margin-top:-150px; transform:translateX(-50px);
+    }
+    .divider{
+      position:absolute; top:2%; bottom:5%; left:57%;
+      width:1px; background-color:rgba(255,255,255,.925); opacity:.3; z-index:0;
     }
 
-    .profile-pic {
-        width: 320px;
-        height: 320px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 4px solid #00ffcc;
-        box-shadow: 0 0 20px rgba(0, 255, 204, 0.4);
-    }
-    .scroll-note {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        font-size: 0.9rem;
-        color: #888;
-        opacity: 0.85;
-        z-index: 999;
-        transition: opacity 0.5s ease;
-    }
-    .scroll-note.hidden {
-        opacity: 0;
-        pointer-events: none;
-    }
-    .typed {
-        font-size: 17px;
-        max-width: 700px;
-        line-height: 1.5;
-        color: #dcdcdc;
-        white-space: pre-line;
-        min-height: 200px;
-    }
-    .buttons {
-      margin-top: 30px;
-    }
-    .buttons a {
-      background: #00ffcc;
-      color: #0f0f0f;
-      padding: 10px 20px;
-      margin: 10px 10px 0 0;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      display: inline-block;
-    }
-    .buttons a:hover {
-      background: #00ccaa;
-    }
-    .social-icons {
-        margin-top: 60px;
-        display: flex;
-        justify-content: center;
-        gap: 40px;
+    .profile-pic{
+      width:320px; height:320px; border-radius:50%; object-fit:cover;
+      border:4px solid #00ffcc; box-shadow:0 0 20px rgba(0,255,204,.4);
     }
 
-    .social-icons a img {
-        width: 30px;
-        height: 30px;
-        filter: brightness(0) invert(1); /* makes icons white if they're black SVGs */
-        transition: transform 0.2s ease;
+    .buttons{ margin-top:30px; }
+    .buttons a{
+      background:#00ffcc; color:#0f0f0f; padding:10px 20px; margin:10px 10px 0 0;
+      border-radius:5px; text-decoration:none; font-weight:bold; display:inline-block;
     }
-    .tooltip {
-        opacity: 0;
-        visibility: hidden;
-        font-size: 12px;
-        background-color: #222;
-        color: #fff;
-        padding: 4px 8px;
-        border-radius: 4px;
-        position: absolute;
-        bottom: -25px;
-        white-space: nowrap;
-        transition: opacity 0.3s ease;
-        pointer-events: none;
+    .buttons a:hover{ background:#00ccaa; }
+
+    .social-icons{ margin-top:60px; display:flex; justify-content:center; gap:40px; }
+    .social-icons a img{ width:30px;height:30px; filter:brightness(0) invert(1); transition:transform .2s ease; }
+    .social-icons a:hover img{ transform:scale(1.2); }
+
+    .tooltip{
+      opacity:0; visibility:hidden; font-size:12px; background:#222; color:#fff;
+      padding:4px 8px; border-radius:4px; position:absolute; bottom:-25px; white-space:nowrap;
+      transition:opacity .3s ease; pointer-events:none;
     }
-    
-    .icon-container {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .icon-container{ position:relative; display:flex; flex-direction:column; align-items:center; }
+    .icon-container:hover .tooltip{ opacity:1; visibility:visible; }
+
+    .scroll-note{
+      position:fixed; bottom:30px; right:30px; font-size:.9rem; color:#888; opacity:.85;
+      z-index:999; transition:opacity .5s ease;
+    }
+    .scroll-note.hidden{ opacity:0; pointer-events:none; }
+
+    .typed{ font-size:17px; max-width:700px; line-height:1.5; color:#dcdcdc; white-space:pre-line; min-height:200px; }
+
+    /* ===== Projects ===== */
+    .projects h2 { margin: 0 0 8px 0; }
+    .projects__lead { color:#bfc7cc; margin:0 0 18px 0; }
+
+    .proj-grid{
+      display:grid; grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:18px; align-items:stretch;
+    }
+    @media (max-width:1100px){ .proj-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
+    @media (max-width:700px){ .proj-grid{ grid-template-columns: 1fr; } }
+
+    .proj-card{
+      display:flex; flex-direction:column; overflow:hidden;
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:16px;
+      box-shadow:0 12px 28px rgba(0,0,0,.35);
+      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .proj-card:hover{
+      transform: translateY(-4px);
+      box-shadow:0 18px 36px rgba(0,0,0,.45);
+      border-color: rgba(0,255,204,.25);
     }
 
-    .icon-container:hover .tooltip {
-        opacity: 1;
-        visibility: visible;
+    .proj-media{ position:relative; aspect-ratio: 16/9; overflow:hidden; }
+    .proj-media img{
+      width:100%; height:100%; object-fit:cover; display:block;
+      filter: saturate(1.05);
+      transition: transform .25s ease;
     }
-    .social-icons a:hover img {
-        transform: scale(1.2);
+    .proj-card:hover .proj-media img{ transform: scale(1.03); }
+
+    .proj-body{ padding:16px 16px 18px; display:flex; flex-direction:column; gap:10px; }
+    .proj-body h3{ margin:0; color:#e9f7f5; letter-spacing:.2px; }
+    .proj-body p{ margin:0; color:#d8dee3; line-height:1.6; }
+
+    .proj-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:4px; }
+    .proj-tags span{
+      font-size:.85rem; padding:6px 10px; border-radius:999px;
+      background: rgba(0,255,204,.12); color:#cffff3; border:1px solid rgba(0,255,204,.25);
     }
-    @media (max-width: 768px) {
+
+    .proj-actions{ margin-top:auto; display:flex; gap:10px; }
+
+    /* Projects details expander */
+    .proj-details summary {
+      list-style: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .proj-details summary::-webkit-details-marker { display: none; }
+    .proj-details[open] summary {
+      background: #00ffcc; color:#0f0f0f; border-color:#00ffcc;
+      box-shadow:0 8px 20px rgba(0,255,204,.28);
+    }
+    .proj-details__content{
+      margin-top:14px; padding:14px;
+      border:1px dashed rgba(255,255,255,.12);
+      border-radius:12px; background: rgba(255,255,255,.03);
+      line-height: 1.65;
+      letter-spacing: .2px;
+    }
+    .proj-details__content h4{ margin:8px 0 10px; color:#e9f7f5; }
+    .proj-details__content p{ color:#d6dde2; margin: 0 0 12px; }
+    .proj-details__content ul{ margin:0 0 10px 20px; }
+    .proj-details__content ul li{ margin-bottom:10px; }
+
+    /* ---------- Resume (summary) ---------- */
+    .rs h2{ margin-bottom:8px; }
+    .rs p{ color:#cfcfcf; }
+    .rs__header{ margin-bottom:16px; }
+    .rs__btn{
+      display:inline-block; margin-top:12px; padding:12px 22px; background:#00ffcc; color:#0f0f0f;
+      font-weight:700; border-radius:10px; text-decoration:none; transition:transform .15s ease, box-shadow .15s ease;
+      box-shadow:0 8px 24px rgba(0,255,204,.15);
+    }
+    .rs__btn:hover{ transform:translateY(-1px); box-shadow:0 10px 28px rgba(0,255,204,.25); }
+    .rs__card{
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:20px; margin:18px 0;
+      box-shadow:0 10px 30px rgba(0,0,0,.25);
+    }
+    .rs__grid{ display:grid; grid-template-columns:1.1fr 1fr; gap:18px; align-items:start; }
+    .rs__col{ min-width:0; }
+    .rs__list{ list-style:none; padding-left:0; margin:0; }
+    .rs__list>li{ margin:14px 0; }
+    .rs__bullets{ margin:8px 0 0 18px; }
+    .rs__bullets li{ margin:6px 0; color:#dcdcdc; }
+    .rs__role{ display:flex; flex-direction:column; gap:4px; }
+    .rs__meta{ font-size:.9rem; color:#9aa0a6; }
+    .rs__skills{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+    .rs__skill-group{ background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:14px; }
+    .rs__skill-title{ font-weight:700; color:#00ffcc; margin-bottom:8px; letter-spacing:.2px; }
+    .rs__pills{ display:flex; flex-wrap:wrap; gap:8px; }
+    .pill{
+      padding:8px 10px; border-radius:999px; font-size:.9rem; line-height:1;
+      background:rgba(0,255,204,.12); color:#cffff3; border:1px solid rgba(0,255,204,.25); backdrop-filter:blur(2px);
+    }
+    .rs__chips{ display:flex; flex-wrap:wrap; gap:10px; padding-left:0; list-style:none; }
+    .rs__chips li{ background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); padding:8px 12px; border-radius:999px; color:#eaeaea; font-size:.92rem; }
+    .rs__card h3{ margin:0 0 10px 0; color:#e9f7f5; }
+
+    /* ---------- About: Layout (left-aligned, not centered) ---------- */
+    .about.roadmap{
+      max-width:none;
+      margin:0;          /* no centering */
+      padding-left:40px; /* align with header left edge */
+      padding-right:12px;
+    }
+    .about__twocol{
+      display:grid; grid-template-columns:1.15fr 1fr; gap:22px; align-items:start;
+    }
+    .about__left{ max-width:920px; }
+    .about__right{ min-width:0; }
+    .about__full{
+      margin-top:28px; display:grid; grid-template-columns:1fr 1fr; gap:18px;
+    }
+    .about__full > .about__panel{ height:100%; }
+
+    /* ---------- Timeline ---------- */
+    .rm{ list-style:none; padding-left:0; margin:0; position:relative; }
+    .rm::before{ content:""; position:absolute; left:36px; top:0; bottom:0; width:2px; background:linear-gradient(#2f2f2f,#3b3b3b); }
+    .rm__item{ position:relative; padding-left:96px; margin:28px 0; }
+    .rm__dot{
+      position:absolute; left:18px; top:0; width:40px; height:40px; border-radius:50%;
+      background:#00ffcc; color:#0f0f0f; font-weight:800; font-size:12px; display:flex; align-items:center; justify-content:center;
+      box-shadow:0 10px 20px rgba(0,255,204,.35);
+    }
+    .rm__card.bare{ background:transparent; border:none; box-shadow:none; padding:2px 0 6px 0; }
+    .rm__card.bare h3{ margin:0 0 8px 0; color:#eefdf9; letter-spacing:.2px; }
+    .rm__card.bare p{ margin:0 0 8px 0; font-size:1.06rem; line-height:1.75; color:#e5e5e5; }
+    .rm__bullets{ margin:10px 0 0 18px; }
+    .rm__bullets li{ margin:6px 0; color:#d9d9d9; font-size:1rem; line-height:1.6; }
+
+    /* ---------- Panels & chips ---------- */
+    .about__panel{
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border:1px solid rgba(255,255,255,.06); border-radius:14px; padding:18px 18px 16px;
+    }
+    .about__panel h3{ margin:0 0 10px 0; color:#e9f7f5; }
+    .about__chips{ display:flex; flex-wrap:wrap; gap:10px; }
+    .chip{
+      padding:7px 12px; border-radius:999px; font-size:.93rem;
+      background:rgba(0,255,204,.12); color:#cffff3; border:1px solid rgba(0,255,204,.25);
+    }
+    .about__bullets{ margin:8px 0 0 18px; }
+    .about__bullets li{ margin:6px 0; color:#dcdcdc; }
+    .about__note{ color:#aeb4b8; font-size:.92rem; margin-top:10px; }
+
+    /* ---------- Ghost buttons (consistent) ---------- */
+    .btnrow{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+    a.btn-ghost,
+    a.btn-ghost:link,
+    a.btn-ghost:visited{
+      display:inline-block; padding:10px 16px; border-radius:10px;
+      border:1px solid #3e3e3e; background:transparent; color:#f2f2f2; text-decoration:none; font-weight:700;
+      transition:all .18s ease; -webkit-tap-highlight-color:transparent; margin-top: 10px;
+    }
+    a.btn-ghost:hover{
+      background:#00ffcc; color:#0f0f0f; border-color:#00ffcc;
+      box-shadow:0 8px 20px rgba(0,255,204,.28); transform:translateY(-1px);
+    }
+
+    /* ---------- Utility card for course sections ---------- */
+    .course-section{
+      background:#111; border-radius:12px; padding:20px; margin-bottom:30px;
+      box-shadow:0 2px 8px rgba(0,0,0,.4);
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width:980px){
+      .rs__grid{ grid-template-columns:1fr; }
+      .rs__skills{ grid-template-columns:1fr; }
+      .about__twocol{ grid-template-columns:1fr; }
+      .about__full{ grid-template-columns:1fr; }
+      .rm::before{ left:28px; }
+      .rm__item{ padding-left:84px; }
+      .rm__dot{ left:12px; width:36px; height:36px; font-size:11px; }
+    }
+
+    @media (max-width:768px){
+      .hero{ padding:40px 20px; height:auto; text-align:center; }
+      .hero-content{ flex-direction:column; align-items:center; gap:60px; }
+      .hero-left,.hero-right{ flex:none; width:100%; transform:none; margin-top:0; }
+      .hero h2{ font-size:39px; }
+      .hero h3{ font-size:18px; margin-bottom:20px; }
+      .typed{ font-size:16px; max-width:100%; }
+      .buttons{ justify-content:center; }
+      .profile-pic{ width:220px; height:220px; }
+      .social-icons{ gap:30px; flex-wrap:wrap; margin-top:30px; }
+      .divider{ display:none; }
+      header{ flex-direction:column; align-items:flex-start; padding:20px; }
+      nav{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+      nav a{ margin-left:0; margin-right:15px; font-size:14px; }
+    }
+    /* 1) Fix mobile viewport height issue on hero */
     .hero {
-        padding: 40px 20px;
-        height: auto;
-        text-align: center;
+      /* height:100vh;  <-- remove this */
+      min-height: 100svh; /* safe viewport height: iOS/Android browsers */
     }
 
-    .hero-content {
-        flex-direction: column;
-        align-items: center;
-        gap: 60px;
+    /* 2) Comfortable tap targets for all ghost buttons + summary */
+    .btn-ghost, .proj-details summary {
+      min-height: 44px;
+      padding: 10px 16px;
     }
 
-    .hero-left, .hero-right {
-        flex: none;
-        width: 100%;
-        transform: none;
-        margin-top: 0;
+    /* 3) Slightly tighter sections on phones */
+    @media (max-width: 768px){
+      section { padding: 44px 16px; }    /* was 60px 20px */
+      .projects__lead { margin-bottom: 12px; }
     }
 
-    .hero h2 {
-        font-size: 48px;
+    /* 4) Respect device notches (safe areas) */
+    body {
+      padding-left: max(0px, env(safe-area-inset-left));
+      padding-right: max(0px, env(safe-area-inset-right));
     }
 
-    .hero h3 {
-        font-size: 20px;
-        margin-bottom: 20px;
+    /* 5) Make <summary> full-width, feel like a button */
+    .proj-details summary {
+      width: fit-content;
+      border: 1px solid #3e3e3e;
+      border-radius: 10px;
+      padding: 10px 16px;
+    }
+    /* Fix tall square ghost buttons in the "Say Hello" row */
+    .btnrow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;        /* was stretch -> center */
     }
 
-    .typed {
-        font-size: 16px;
-        max-width: 100%;
+    /* Make ghost buttons size to their content and center the text */
+    .btnrow .btn-ghost {
+      display: inline-flex;       /* center text nicely */
+      align-items: center;
+      justify-content: center;
+      height: auto;               /* don't stretch */
+      min-height: 40px;           /* still tappable */
+      padding: 10px 16px;         /* keep your padding */
+      line-height: 1.2;           /* avoid tall line boxes */
     }
 
-    .buttons {
-        justify-content: center;
+    .hero {
+      height: auto;        /* cancels the old height:100vh */
+      min-height: 100svh;  /* safe viewport height on mobile */
+    }
+    /* Ensure the row doesn't stretch children vertically */
+    .btnrow {
+      align-items: center;     /* you already have this – make sure it’s after other .btnrow rules */
     }
 
-    .profile-pic {
-        width: 220px;
-        height: 220px;
+    /* Make each ghost button size to its content and never stretch */
+    .btnrow .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;          /* <- prevents flex-grow stretching */
+      width: auto;             /* <- don’t fill available width */
+      height: auto;
+      min-height: 40px;        /* keeps it tappable */
+      line-height: 1.2;
+      padding: 10px 16px;
     }
+    /* --- Final overrides (place at the very end of your CSS) --- */
 
-    .social-icons {
-        gap: 30px;
-        flex-wrap: wrap;
-        margin-top: 30px;
-    }
+/* Cancel the old height:100vh and use safe viewport height on mobile */
+.hero {
+  height: auto !important;
+  min-height: 100svh !important;
+}
 
-    .divider {
-        display: none; /* hide the vertical divider on mobile */
-    }
+/* Say-Hello row: stop flex stretching and make buttons size to content */
+.btnrow {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  align-items: center !important;   /* prevent stretch */
+}
 
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 20px;
-    }
+/* Ghost buttons inside Say-Hello row: no fixed box, just content-sized pills */
+.btnrow .btn-ghost {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 auto !important;        /* don't grow */
+  width: auto !important;
+  height: auto !important;
+  min-height: 0 !important;         /* cancel earlier min-height */
+  line-height: 1.2 !important;
+  padding: 10px 16px !important;    /* comfy tap target */
+  border-radius: 10px !important;
+}
 
-    nav {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 10px;
-    }
+/* (Optional) Keep your generic ghost min-height elsewhere, but not in Say-Hello */
+/* --- Project "Read More" button fixes (place at the very end) --- */
+.proj-details > summary {
+  display: inline-flex !important;     /* size to content, not the container */
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 auto !important;           /* don't grow */
+  align-self: flex-start !important;   /* avoid flex stretch in parents */
+  width: auto !important;
+  height: auto !important;
+  min-height: 0 !important;            /* cancels the old 44px */
+  line-height: 1.2 !important;
+  padding: 10px 16px !important;       /* comfy tap target without looking square */
+  border: 1px solid #3e3e3e !important;
+  border-radius: 10px !important;
+  background: transparent;             /* default (your open state still styles it) */
+  cursor: pointer;
+}
 
-    nav a {
-        margin-left: 0;
-        margin-right: 15px;
-        font-size: 14px;
-    }
-    }
+/* keep the "opened" highlight you already have */
+.proj-details[open] > summary {
+  background: #00ffcc !important; 
+  color: #0f0f0f !important;
+  border-color: #00ffcc !important;
+  box-shadow: 0 8px 20px rgba(0,255,204,.28) !important;
+}
 
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      font-size: 14px;
-      background: #1a1a1a;
-    }
+    /* ---------- Footer ---------- */
+    footer{ text-align:center; padding:30px; font-size:14px; background:#1a1a1a; }
   </style>
 </head>
 <body>
@@ -292,128 +430,462 @@
       <a href="#home">Home</a>
       <a href="#projects">Projects</a>
       <a href="#resume">Resume</a>
-      <a href="#videos">Videos</a>
+      <!-- <a href="#videos">Videos</a> -->
       <a href="#about">About</a>
     </nav>
   </header>
 
+  <!-- ================= HERO ================= -->
   <section id="home" class="hero">
-  <h2>Aniket Deshpande</h2>
-  <h3>Data Scientist & Machine Learning Engineer</h3>
+    <h2>Aniket Deshpande</h2>
+    <h3>Data Scientist & Machine Learning Engineer</h3>
 
-  <div class="hero-content">
-    <div class="hero-left">
-      <div id="typed-text" class="typed"></div>
+    <div class="hero-content">
+      <div class="hero-left">
+        <div id="typed-text" class="typed"></div>
 
-      <div class="buttons">
-        <a href="#projects">View Projects</a>
-        <a href="#resume">Download Resume</a>
-      </div>
-
-      <p class="scroll-note">Scroll to see more ↓</p>
-    </div>
-    <div class="divider"></div> <!-- new vertical line -->
-    <div class="hero-right">
-   
-      <img src="assets/img/me1.jpg" alt="Aniket Deshpande" class="profile-pic" />
-        <div class="social-icons">
-                <div class="icon-container">
-                    <a href="https://www.linkedin.com/in/aniket-rajendra-deshpande-88750b257" target="_blank" aria-label="LinkedIn">
-                    <img src="assets/icons/linkedin.svg" alt="LinkedIn" />
-                    </a>
-                </div>
-                
-                <div class="icon-container">
-                    <a href="mailto:adeshp@asu.edu" aria-label="Email">
-                    <img src="assets/icons/email.svg" alt="Email" />
-                    </a>
-                    <span class="tooltip">adeshp@asu.edu</span>
-                </div>
-                
-                <div class="icon-container">
-                    <a href="tel:+14807960191" aria-label="Phone">
-                    <img src="assets/icons/phone.svg" alt="Phone" />
-                    </a>
-                    <span class="tooltip">+1 (480) 796-0191</span>
-                </div>
-                
-                <div class="icon-container">
-                    <a href="https://github.com/Aniket19j8" target="_blank" aria-label="GitHub">
-                    <img src="assets/icons/github.svg" alt="GitHub" />
-                    </a>
-                </div>
+        <div class="buttons">
+          <a href="#projects">View Projects</a>
+          <a href="#resume">Download Resume</a>
         </div>
 
+        <p class="scroll-note">Scroll to see more ↓</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="hero-right">
+        <img src="assets/img/me1.jpg" alt="Aniket Deshpande" class="profile-pic" />
+        <div class="social-icons">
+          <div class="icon-container">
+            <a href="https://www.linkedin.com/in/aniket-rajendra-deshpande-88750b257" target="_blank" aria-label="LinkedIn">
+              <img src="assets/icons/linkedin.svg" alt="LinkedIn" />
+            </a>
+          </div>
+
+          <div class="icon-container">
+            <a href="mailto:adeshp@asu.edu" aria-label="Email">
+              <img src="assets/icons/email.svg" alt="Email" />
+            </a>
+            <span class="tooltip">adeshp@asu.edu</span>
+          </div>
+
+          <div class="icon-container">
+            <a href="tel:+14807960191" aria-label="Phone">
+              <img src="assets/icons/phone.svg" alt="Phone" />
+            </a>
+            <span class="tooltip">+1 (480) 796-0191</span>
+          </div>
+
+          <div class="icon-container">
+            <a href="https://github.com/Aniket19j8" target="_blank" aria-label="GitHub">
+              <img src="assets/icons/github.svg" alt="GitHub" />
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-  <section id="projects">
+  <!-- ===== Projects (expand-in-place) ===== -->
+  <section id="projects" class="projects">
     <h2>Projects</h2>
-    <p>Showcase of selected machine learning apps and data visualizations.</p>
-    <!-- Add project cards or images here -->
+    <p class="projects__lead">A few things I've built that mix real-time data, NLP, and ML systems.</p>
+
+    <div class="proj-grid">
+
+      <!-- SER -->
+      <article class="proj-card">
+        <div class="proj-media">
+          <img
+            src="assets/img/projects/ser.png"
+            alt="Speech Emotion Recognition spectrogram demo"
+            loading="lazy"
+            width="1280" height="720"
+          />
+        </div>
+        <div class="proj-body">
+          <h3>Speech Emotion Recognition (SER)</h3>
+          <p>
+            End-to-end pipeline to classify emotions from speech using MFCC/spectrogram features with CNN/RNN models;
+            evaluated with accuracy & F1 and hardened against noise.
+          </p>
+          <div class="proj-tags">
+            <span>Python</span><span>Librosa</span><span>MFCC</span><span>CNN/RNN</span>
+          </div>
+
+          <!-- EXPANDER -->
+          <details class="proj-details">
+            <summary class="btn-ghost">Read More</summary>
+            <div class="proj-details__content">
+              <h4>What I built</h4>
+              <ul>
+                <li>Audio preprocessing (trim, resample, frame) and feature extraction (MFCC, Mel-spectrogram).</li>
+                <li>Hybrid CNN-RNN classifier; tuned with early stopping & class-weighted loss.</li>
+                <li>Error analysis with confusion matrix to improve similar-emotion separation.</li>
+              </ul>
+              <h4>Why it matters</h4>
+              <p>Applicable to call centers, wellness apps, and assistants—turning speech into actionable emotional signals.</p>
+              <div class="proj-actions">
+                <a class="btn-ghost" target="_blank" href="https://github.com/Aniket19j8">View Code</a>
+              </div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <!-- Stock.io -->
+      <article class="proj-card">
+        <div class="proj-media">
+          <img
+            src="assets/img/projects/stock.png"
+            alt="Stock.io Streamlit dashboard"
+            loading="lazy"
+            width="1280" height="720"
+          />
+        </div>
+        <div class="proj-body">
+          <h3>Stock.io — Real-Time Stock Recs</h3>
+          <p>
+            Streamlit app that combines real-time news sentiment (web-scraped last 3 days) with an LSTM forecast on
+            historical OHLC to produce dual recommendations.
+          </p>
+          <div class="proj-tags">
+            <span>Streamlit</span><span>Web Scraping</span><span>NLP</span><span>LSTM</span>
+          </div>
+
+          <details class="proj-details">
+            <summary class="btn-ghost">Read More</summary>
+            <div class="proj-details__content">
+              <h4>System</h4>
+              <ul>
+                <li>Scrapes finance headlines for a chosen ticker; aggregates a sentiment score (rolling 3 days).</li>
+                <li>LSTM predicts intraday range from historical OHLC; outputs trend + confidence.</li>
+                <li>UI blends both signals into a clear “dual recommendation”.</li>
+              </ul>
+              <h4>Consulting value</h4>
+              <p>Shows how to combine unstructured (news) & structured (time series) data into one decision app.</p>
+              <div class="proj-actions">
+                <a class="btn-ghost" target="_blank" href="https://github.com/Aniket19j8">View Code</a>
+              </div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <!-- NLP WebApp -->
+      <article class="proj-card">
+        <div class="proj-media">
+          <img
+            src="assets/img/projects/nlpwebapp1.png"
+            alt="NLP webapp sentiment & summarization"
+            loading="lazy"
+            width="1280" height="720"
+          />
+        </div>
+        <div class="proj-body">
+          <h3>NLP WebApp — Sentiment & Summarization</h3>
+          <p>
+            Full-stack Flask app running a custom sentiment classifier on scraped reviews + Hugging Face APIs for
+            summarization & text generation in real time.
+          </p>
+          <div class="proj-tags">
+            <span>Flask</span><span>Hugging Face</span><span>HTML/JS</span><span>APIs</span>
+          </div>
+
+          <details class="proj-details">
+            <summary class="btn-ghost">Read More</summary>
+            <div class="proj-details__content">
+              <h4>Highlights</h4>
+              <ul>
+                <li>Trained & served a sentiment model; exposed REST endpoints.</li>
+                <li>Integrated HF inference APIs for summarization/generation of long reviews.</li>
+                <li>Responsive HTML/JS frontend with streaming results.</li>
+              </ul>
+              <h4>Why it’s relevant</h4>
+              <p>Demonstrates end-to-end model serving & UX integration—how client solutions get delivered.</p>
+              <div class="proj-actions">
+                <a class="btn-ghost" target="_blank" href="https://github.com/Aniket19j8">View Code</a>
+              </div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+    </div>
   </section>
 
-  <section id="resume">
-    <h2>Resume</h2>
-    <iframe src="assets/resume.pdf" width="100%" height="600px" style="border: none;"></iframe>
+  <!-- ================= RESUME SUMMARY ================= -->
+  <section id="resume" class="rs">
+    <div class="rs__header">
+      <h2>Resume</h2>
+      <p>Click below to view or download my resume, or browse the summary below.</p>
+      <a href="assets/resume.pdf" target="_blank" class="rs__btn">View Resume (PDF)</a>
+    </div>
+
+    <div class="rs__card">
+      <h3>⚡ Skills (tailored for Deloitte)</h3>
+      <div class="rs__skills">
+        <div class="rs__skill-group">
+          <div class="rs__skill-title">Programming & ML</div>
+          <div class="rs__pills">
+            <span class="pill">Python</span><span class="pill">NumPy</span><span class="pill">Pandas</span>
+            <span class="pill">Scikit-learn</span><span class="pill">PyTorch</span><span class="pill">TensorFlow</span>
+          </div>
+        </div>
+        <div class="rs__skill-group">
+          <div class="rs__skill-title">AI / LLMs</div>
+          <div class="rs__pills">
+            <span class="pill">Prompt Engineering</span><span class="pill">Transformers</span>
+            <span class="pill">GPT-2</span><span class="pill">BERT</span><span class="pill">LangChain</span><span class="pill">RAG</span>
+          </div>
+        </div>
+        <div class="rs__skill-group">
+          <div class="rs__skill-title">Data Science</div>
+          <div class="rs__pills">
+            <span class="pill">EDA</span><span class="pill">Feature Engineering</span>
+            <span class="pill">Model Optimization</span><span class="pill">Anomaly Detection</span>
+            <span class="pill">Clustering</span><span class="pill">Knowledge Graphs</span>
+          </div>
+        </div>
+        <div class="rs__skill-group">
+          <div class="rs__skill-title">Cloud & DevOps</div>
+          <div class="rs__pills">
+            <span class="pill">AWS</span><span class="pill">Docker</span><span class="pill">Git</span>
+            <span class="pill">CI/CD</span><span class="pill">APIs</span><span class="pill">SQL</span>
+          </div>
+        </div>
+        <div class="rs__skill-group">
+          <div class="rs__skill-title">Viz & Reporting</div>
+          <div class="rs__pills">
+            <span class="pill">Tableau</span><span class="pill">Power BI</span>
+            <span class="pill">Storytelling</span><span class="pill">A/B Testing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rs__grid">
+      <div class="rs__col">
+        <div class="rs__card">
+          <h3>💼 Experience</h3>
+          <ul class="rs__list">
+            <li>
+              <div class="rs__role">
+                <strong>Instructional Design Assistant — EdPlus @ ASU</strong>
+                <span class="rs__meta">Aug 2024 – Present · Scottsdale, AZ</span>
+              </div>
+              <ul class="rs__bullets">
+                <li>Analyzed 10k+ learner interactions to surface insights that improved course outcomes.</li>
+                <li>Built datasets and pipelines for ML experiments; partnered with cross-functional teams.</li>
+                <li>Supported A/B testing and model evaluation to guide course design decisions.</li>
+              </ul>
+            </li>
+            <li>
+              <div class="rs__role">
+                <strong>Data Analyst Intern — Suzlon Energy</strong>
+                <span class="rs__meta">May 2021 – Aug 2021 · Pune, India</span>
+              </div>
+              <ul class="rs__bullets">
+                <li>Developed predictive models for wind turbine RUL; improved detection accuracy to ~95%.</li>
+                <li>Preprocessed high-volume SCADA data; optimized features for time-series modeling.</li>
+                <li>Built Tableau dashboards to monitor anomalies and KPIs across turbines.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="rs__card">
+          <h3>🎓 Education</h3>
+          <ul class="rs__list">
+            <li><strong>M.S. in Data Science</strong> — Arizona State University</li>
+            <li><strong>PG Diploma in AI/ML</strong> — MIT World Peace University</li>
+            <li><strong>B.C.A. in Computer Applications</strong> — MIT World Peace University</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rs__col">
+        <div class="rs__card">
+          <h3>🚀 Projects</h3>
+          <ul class="rs__list">
+            <li><strong>NLP App:</strong> Sentiment/Emotion/Text Generation using <em>GPT-2 & BERT</em>; Docker + FastAPI.</li>
+            <!--<li><strong>RAG Q&A:</strong> Document-grounded answering with <em>LangChain</em>; retrieval-based evals.</li> -->
+            <li><strong>Speech Emotion Recognition (SER):</strong> MFCC + spectrogram features → hybrid CNN-RNN; error analysis with confusion matrix for robust emotion classification.</li>
+            <!--<li><strong>Entity Linking:</strong> OCR → entity extraction → <em>Wikidata</em> linking; PostgreSQL for analytics.</li>-->
+            <li><strong>Stock.io (Realtime Prediction):</strong>Streamlit app: finance news sentiment (web-scraped, 3-day window) + LSTM on OHLC for dual stock recommendations.</li>
+            <li><strong>Predictive Maintenance:</strong> Time-series models for turbines; anomaly detection & alerts (Suzlon)</li>
+          </ul>
+        </div>
+
+        <div class="rs__card">
+          <h3>🏅 Certifications</h3>
+          <ul class="rs__chips">
+            <li>HarvardX — High-Dimensional Data Analysis</li>
+            <li>IBM — Data Science / NLP</li>
+            <li>AWS — Cloud Practitioner (coursework)</li>
+            <li>Infosys — Applied NLP / Cloud</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section id="videos">
-    <h2>Videos</h2>
-    <p>Watch walkthroughs and presentations of my work.</p>
-    <!-- Embed YouTube or video elements here -->
+  <!-- ================= ABOUT / ROADMAP ================= -->
+  <section id="about" class="about roadmap">
+    <div class="about__header">
+      <h2>About Me</h2>
+      <p>My path into data science, from hands-on projects to graduate research and machine learning at scale.</p>
+    </div>
+
+    <div class="about__twocol">
+      <!-- LEFT: Timeline -->
+      <div class="about__left">
+        <ol class="rm">
+          <li class="rm__item">
+            <div class="rm__dot">BCA</div>
+            <div class="rm__card bare">
+              <h3>🎓 B.C.A. — Bachelor of Computer Applications</h3>
+              <p>I began with a Bachelor of Computer Applications (programming, DSA, databases). My capstones and an internship at <strong>Suzlon</strong> sparked my interest in applied data.</p>
+              <ul class="rm__bullets">
+                <li><strong>Internship @ Suzlon:</strong> predictive modeling for turbine health, time-series preprocessing, dashboards.</li>
+                <li><strong>GPA:</strong> 3.8 / 4.0</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="rm__item">
+            <div class="rm__dot">PGD</div>
+            <div class="rm__card bare">
+              <h3>🧠 PG Diploma in AI/ML</h3>
+              <p>As AI accelerated, I completed a PG Diploma and assisted on an NLP research capstone in <strong>Speech Emotion Recognition (SER)</strong>, getting hands-on with transformers and modern NLP.</p>
+              <ul class="rm__bullets">
+                <li><strong>Capstone:</strong> SER using deep learning & NLP.</li>
+                <li><strong>GPA:</strong> 3.7 / 4.0</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="rm__item">
+            <div class="rm__dot">MS</div>
+            <div class="rm__card bare">
+              <h3>📚 M.S. in Data Science (ASU)</h3>
+              <p>I’m currently pursuing my M.S. at Arizona State University (GPA: <strong>3.6</strong>), aiming for ~<strong>3.8</strong> by December. Work spans ML systems, statistical modeling, big-data analytics, and cloud.</p>
+              <ul class="rm__bullets">
+                <li><strong>Now:</strong> building ML pipelines & model evaluations; supporting A/B testing and analytics.</li>
+                <li><strong>Next:</strong> AWS Machine Learning Specialty (in prep).</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <!-- RIGHT: Coursework -->
+      <div class="about__right">
+        <div class="course-section">
+          <div class="about__panel">
+            <h3>📘 Relevant Coursework — ASU (taken / planned)</h3>
+            <div class="about__chips">
+              <span class="chip">Data Mining (CSE 572)</span>
+              <span class="chip">Statistics for Data Analytics (DSE 501)</span>
+              <span class="chip">Analyzing Big Data (IFT 511)</span>
+              <span class="chip">Design of Experiments (IEE 572)</span>
+              <span class="chip">Advanced DB Management (IFT 530)</span>
+              <span class="chip">Data Visualization (CSE 578)</span>
+              <span class="chip">Prob. & Random Processes (EEE 554)</span>
+              <span class="chip">Probability & Stats for Eng (IEE 380)</span>
+            </div>
+            <p class="about__note">Focused on ML, stats, data engineering, and scalable analytics. (Fall plan included.)</p>
+          </div>
+        </div>
+
+        <div class="course-section">
+          <div class="about__panel">
+            <h3>🧠 Relevant Coursework — PGD AI/ML & B.C.A.</h3>
+            <div class="about__chips">
+              <span class="chip">Machine Learning</span>
+              <span class="chip">Deep Learning</span>
+              <span class="chip">Natural Language Processing</span>
+              <span class="chip">Data Structures & Algorithms</span>
+              <span class="chip">Database Systems</span>
+              <span class="chip">Software Engineering</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FULL-WIDTH bottom strip -->
+    <div class="about__full">
+      <div class="about__panel">
+        <h3>🌄 Outside Work</h3>
+        <ul class="about__bullets">
+          <li>Swimming & trekking</li>
+          <li>Making explainer videos on new tech (to be embedded here soon)</li>
+          <li>Preparing for <strong>AWS Machine Learning Specialty</strong></li>
+        </ul>
+      </div>
+
+      <div class="about__panel">
+        <h3>📫 Say Hello</h3>
+        <p>I hope you enjoyed my portfolio. Feel free to reach out, always happy to talk.</p>
+        <div class="btnrow">
+          <a class="btn-ghost" href="mailto:adeshp@asu.edu">Email</a>
+          <a class="btn-ghost" href="tel:+14807960191">Call</a>
+          <a class="btn-ghost" href="https://www.linkedin.com/in/aniket-rajendra-deshpande-88750b257" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>A brief introduction, background, and interests.</p>
-  </section>
+  <footer>© 2025 Aniket Deshpande</footer>
 
-  <footer>
-    © 2025 Aniket Deshpande
-  </footer>
+  <!-- Typed hero intro + subtle reveals -->
   <script>
-  const scrollNote = document.querySelector('.scroll-note');
-  const aboutSection = document.querySelector('#about');
+    const scrollNote = document.querySelector('.scroll-note');
+    const aboutSection = document.querySelector('#about');
+    window.addEventListener('scroll', () => {
+      const rect = aboutSection.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+      if (isVisible) { scrollNote.classList.add('hidden'); }
+      else { scrollNote.classList.remove('hidden'); }
+    });
 
-  window.addEventListener('scroll', () => {
-    const rect = aboutSection.getBoundingClientRect();
-    const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+    const typedTextElement = document.getElementById('typed-text');
+    const fullText = `Hey there! Welcome to my portfolio! I’m Aniket, a curious mind with a passion for data and machine learning.
 
-    if (isVisible) {
-      scrollNote.classList.add('hidden');
-    } else {
-      scrollNote.classList.remove('hidden');
-    }
-  });
-</script>
-<script>
-  const typedTextElement = document.getElementById('typed-text');
-  const fullText = `Hey there! Welcome to my portfolio! I’m Aniket, a curious mind with a passion for data and machine learning.
+A quick tour guide: you’ll find a curated selection of few projects I’ve worked on (just the ones I have added on my github, rest I'm deploying them in a interactive way - in progress).
 
-A quick tour guide: you’ll find a curated selection of projects I’ve worked on (just the ones I thought you’d enjoy exploring most), along with a few short videos where I break down some core Data Science and ML concepts in my own words.
-
-You can also download my resume, and if you're interested, head over to the About section where I’ve detailed the courses I’ve taken so far, my academic journey, and yes — my GPA too.
+You can also download my resume, and if you're interested, head over to the About section where I’ve detailed the relevant courses I’ve taken so far, my academic journey, and yes — my GPA too.
 
 Hope you enjoy the visit!`;
 
-  let index = 0;
-
-  function typeText() {
-    if (index < fullText.length) {
-      typedTextElement.textContent += fullText.charAt(index);
-      index++;
-      setTimeout(typeText, 30); // Speed of typing (lower is faster)
+    let index = 0;
+    function typeText() {
+      if (index < fullText.length) {
+        typedTextElement.textContent += fullText.charAt(index);
+        index++;
+        setTimeout(typeText, 30);
+      }
     }
-  }
+    window.addEventListener('DOMContentLoaded', typeText);
 
-  window.addEventListener('DOMContentLoaded', () => {
-    typeText();
-  });
-</script>
-
-
+    // Simple reveal on scroll
+    const reveal = entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.transform = "translateY(0)";
+          e.target.style.opacity = "1";
+        }
+      });
+    };
+    const io = new IntersectionObserver(reveal, { threshold: 0.12 });
+    document.querySelectorAll('.rm__card, .about__panel, .rs__card').forEach(el => {
+      el.style.transform = "translateY(14px)";
+      el.style.opacity = "0";
+      el.style.transition = "all .4s ease";
+      io.observe(el);
+    });
+  </script>
 </body>
 </html>
