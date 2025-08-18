@@ -423,7 +423,74 @@
     margin-bottom: 20px;   /* space between Outside Work and Say Hello */
   }
 }
+@media (max-width: 768px){
+  .about__panel {
+    margin-bottom: 24px !important;  /* ensure spacing between Outside Work & Say Hello */
+  }
+}
+@media (max-width: 768px){
+  .about__panel {
+    transform: none !important;
+    opacity: 1 !important;      /* ensure they’re fully visible */
+  }
+}
+.about__panel { transform: none !important; opacity: 1 !important; }
+    /* ===== FIXES FOR OVERLAPPING SECTIONS ===== */
+    /* Fix for About section layout on mobile */
+    @media (max-width: 768px) {
+      .about.roadmap {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+      
+      .about__full {
+        display: flex;
+        flex-direction: column;
+        gap: 30px; /* More space between sections */
+      }
+      
+      .about__panel {
+        margin-bottom: 0 !important; /* Remove bottom margin */
+        width: 100%; /* Full width */
+      }
+      
+      /* Ensure buttons wrap properly */
+      .btnrow {
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+      }
+    }
 
+    /* Ensure panels don't overlap */
+    .about__full {
+      position: relative;
+    }
+    
+    .about__panel {
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Add extra spacing between panels */
+    .about__panel:first-child {
+      margin-bottom: 24px;
+    }
+
+    /* Make sure the grid gap is sufficient */
+    @media (min-width: 769px) {
+      .about__full {
+        gap: 24px;
+      }
+    }
+    
+    /* Fix for scroll behavior */
+    html { scroll-behavior: smooth; }
+    
+    /* Ensure the hero section doesn't cause overflow */
+    .hero {
+      min-height: calc(100svh - 80px);
+    }
     /* ---------- Footer ---------- */
     footer{ text-align:center; padding:30px; font-size:14px; background:#1a1a1a; }
   </style>
@@ -846,18 +913,18 @@
   <footer>© 2025 Aniket Deshpande</footer>
 
   <!-- Typed hero intro + subtle reveals -->
-  <script>
-    const scrollNote = document.querySelector('.scroll-note');
-    const aboutSection = document.querySelector('#about');
-    window.addEventListener('scroll', () => {
-      const rect = aboutSection.getBoundingClientRect();
-      const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
-      if (isVisible) { scrollNote.classList.add('hidden'); }
-      else { scrollNote.classList.remove('hidden'); }
-    });
+ <script>
+  const scrollNote = document.querySelector('.scroll-note');
+  const aboutSection = document.querySelector('#about');
+  window.addEventListener('scroll', () => {
+    const rect = aboutSection.getBoundingClientRect();
+    const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+    if (isVisible) { scrollNote.classList.add('hidden'); }
+    else { scrollNote.classList.remove('hidden'); }
+  });
 
-    const typedTextElement = document.getElementById('typed-text');
-    const fullText = `Hey there! Welcome to my portfolio! I’m Aniket, a curious mind with a passion for data and machine learning.
+  const typedTextElement = document.getElementById('typed-text');
+  const fullText = `Hey there! Welcome to my portfolio! I’m Aniket, a curious mind with a passion for data and machine learning.
 
 A quick tour guide: you’ll find a curated selection of few projects I’ve worked on (just the ones I have added on my github, rest I'm deploying them in a interactive way - in progress).
 
@@ -865,32 +932,41 @@ You can also download my resume, and if you're interested, head over to the Abou
 
 Hope you enjoy the visit!`;
 
-    let index = 0;
-    function typeText() {
-      if (index < fullText.length) {
-        typedTextElement.textContent += fullText.charAt(index);
-        index++;
-        setTimeout(typeText, 30);
-      }
+  let index = 0;
+  function typeText() {
+    if (index < fullText.length) {
+      typedTextElement.textContent += fullText.charAt(index);
+      index++;
+      setTimeout(typeText, 30);
     }
-    window.addEventListener('DOMContentLoaded', typeText);
+  }
+  window.addEventListener('DOMContentLoaded', typeText);
 
-    // Simple reveal on scroll
-    const reveal = entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.style.transform = "translateY(0)";
-          e.target.style.opacity = "1";
-        }
-      });
-    };
-    const io = new IntersectionObserver(reveal, { threshold: 0.12 });
-    document.querySelectorAll('.rm__card, .about__panel, .rs__card').forEach(el => {
-      el.style.transform = "translateY(14px)";
-      el.style.opacity = "0";
-      el.style.transition = "all .4s ease";
-      io.observe(el);
+  // Simple reveal on scroll (do NOT animate .about__panel)
+  const reveal = entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.transform = "translateY(0)";
+        e.target.style.opacity = "1";
+      }
     });
-  </script>
+  };
+  const io = new IntersectionObserver(reveal, { threshold: 0.12 });
+
+  // Only animate these:
+  document.querySelectorAll('.rm__card, .rs__card, .proj-card').forEach(el => {
+    el.style.transform = "translateY(14px)";
+    el.style.opacity = "0";
+    el.style.transition = "all .4s ease";
+    io.observe(el);
+  });
+
+  // Ensure About panels never have a transform applied
+  document.querySelectorAll('.about__panel').forEach(el => {
+    el.style.transform = "none";
+    el.style.opacity = "1";
+  });
+</script>
+
 </body>
 </html>
