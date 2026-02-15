@@ -290,6 +290,20 @@ body::before {
 }
 .aws-card-val { font-size: .86rem; font-weight: 600; color: var(--ink); }
 
+.aws-verify-link {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0073bb; /* AWS blue */
+  text-decoration: none;
+}
+
+.aws-verify-link:hover {
+  text-decoration: underline;
+}
+
+
 /* ═══════════════════════════════════════════
    SECTION LAYOUT
 ═══════════════════════════════════════════ */
@@ -845,8 +859,13 @@ footer {
       <img src="assets/img/me1.jpg" alt="Aniket Deshpande" class="profile-img"/>
     </div>
     <div class="aws-card">
-      <a href="https://www.credly.com/badges/86851be4-9971-4618-9df0-8177d5a0fd64/public_url" target="_blank" aria-label="AWS Machine Learning Specialty Badge">
+      
       <img src="assets/img/badges/aws-ml-specialty.png" alt="AWS ML Specialty"/>
+      <a href="https://www.credly.com/badges/86851be4-9971-4618-9df0-8177d5a0fd64/public_url"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="aws-verify-link">
+       Verify
       </a>
       <div class="aws-card-txt">
         <span class="aws-card-lbl">AWS Certified</span>
