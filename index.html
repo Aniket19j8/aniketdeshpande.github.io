@@ -1244,22 +1244,65 @@ function showT(){
 }
 function hideT(){const t=document.getElementById('typ');if(t)t.remove()}
 async function call(){
-  if(busy)return;busy=true;sendBtn.disabled=true;showT();
-  try{
-    const res=await fetch('https://aniket-chatbot.aniketdeshpande198.workers.dev/',{
-      method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({model:'claude-sonnet-4-5-20250929',max_tokens:1000,system:SYSTEM,messages:hist})
+  if (busy) return;
+  busy = true;
+  sendBtn.disabled = true;
+  showT();
+
+  try {
+    const res = await fetch('https://aniket-chatbot.aniketdeshpande198.workers.dev/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-5-20250929',
+        max_tokens: 1000,
+        system: SYSTEM,
+        messages: hist
+      })
     });
-    const data=await res.json();hideT();
-    if(data.content?.[0]?.text){
-      const r=data.content[0].text;hist.push({role:'assistant',content:r});addMsg('b',r);
-    } else {
-      addMsg('b','I\'m having a moment — reach Aniket directly at adeshp61@asu.edu or on LinkedIn.');
+
+    const raw = await res.text();
+
+    if (!res.ok) {
+      // This is the REAL error. It will tell you if it's 400/401/429 etc.
+      console.error("Worker returned error:", res.status, raw);
+      hideT();
+      addMsg('b', `Chat backend error (${res.status}). Open console for details.`);
+      return;
     }
-  }catch(e){
-    hideT();addMsg('b','Network hiccup! Reach Aniket at adeshp61@asu.edu or on LinkedIn.');
-  }finally{busy=false;sendBtn.disabled=false;msgs.scrollTop=msgs.scrollHeight}
+
+    let data;
+    try {
+      data = JSON.parse(raw);
+    } catch (e) {
+      console.error("Non-JSON success response:", raw);
+      hideT();
+      addMsg('b', 'Backend returned non-JSON. Check console.');
+      return;
+    }
+
+    hideT();
+
+    if (data.content?.[0]?.text) {
+      const r = data.content[0].text;
+      hist.push({ role: 'assistant', content: r });
+      addMsg('b', r);
+    } else {
+      console.warn("Unexpected payload:", data);
+      addMsg('b', "Backend response format unexpected. Check console.");
+    }
+
+  } catch (e) {
+    console.error("Fetch failed:", e);
+    hideT();
+    addMsg('b', 'Network hiccup (fetch failed). Check console + Network tab.');
+  } finally {
+    busy = false;
+    sendBtn.disabled = false;
+    msgs.scrollTop = msgs.scrollHeight;
+  }
 }
+
 </script>
 </body>
 </html>
