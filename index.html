@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W37SRVCEHS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  <!-- end GA4 -->
+  
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Aniket Deshpande — Data Scientist & ML Engineer</title>
@@ -885,16 +896,16 @@ footer {
         <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
         View My Work
       </a>
-      <a href="assets/Aniket_Deshpande_AI & DataScientist_resume.pdf" target="_blank" class="btn-outline">
+      <a href="assets/Aniket_Deshpande_AI & DataScientist_resume.pdf" target="_blank" class="btn-outline" onclick="gtag('event', 'resume_download', {'event_category': 'engagement'})">
         <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Resume PDF
       </a>
     </div>
     <div class="hero-socials">
-      <a href="https://www.linkedin.com/in/aniketdeshpande791" target="_blank" class="soc" aria-label="LinkedIn">
+      <a href="https://www.linkedin.com/in/aniketdeshpande791" target="_blank" class="soc" aria-label="LinkedIn" onclick="gtag('event', 'linkedin_click', {'event_category': 'outbound'})">
         <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
       </a>
-      <a href="https://github.com/Aniket19j8" target="_blank" class="soc" aria-label="GitHub">
+      <a href="https://github.com/Aniket19j8" target="_blank" class="soc" aria-label="GitHub" onclick="gtag('event', 'github_click', {'event_category': 'outbound'})">
         <svg viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/></svg>
       </a>
       <a href="mailto:adeshp61@asu.edu" class="soc" aria-label="Email">
@@ -939,7 +950,7 @@ footer {
         <h3 class="pc-name">LLM-Powered NLP Microservice</h3>
         <p class="pc-desc">Production FastAPI + Gradio stack delivering text summarization & sentiment via transformer models. Blue-green deploys via GitHub Actions with fallback routing for 100% uptime.</p>
         <div class="pc-tags"><span class="ptag">FastAPI</span><span class="ptag">Gradio</span><span class="ptag">Transformers</span><span class="ptag">CI/CD</span><span class="ptag">Docker</span></div>
-        <div class="pc-exp"><button class="pc-tog" onclick="tgl(this)"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg> Details</button><div class="pc-det"><ul><li><strong>100% service availability</strong> via fallback routing between local models and OpenAI/OpenRouter APIs.</li><li>GitHub Actions CI/CD handling <strong>500+ daily API requests</strong> at sub-second latency.</li><li>Modular UI for sentiment analysis, summarization, and text rewriting.</li></ul></div></div>
+        <div class="pc-exp"><button class="pc-tog" onclick="tgl(this); gtag('event', 'project_view', {'event_label': 'llm_microservice'})"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg> Details</button><div class="pc-det"><ul><li><strong>100% service availability</strong> via fallback routing between local models and OpenAI/OpenRouter APIs.</li><li>GitHub Actions CI/CD handling <strong>500+ daily API requests</strong> at sub-second latency.</li><li>Modular UI for sentiment analysis, summarization, and text rewriting.</li></ul></div></div>
       </div>
     </div>
     <div class="pc r d1">
@@ -949,7 +960,7 @@ footer {
         <h3 class="pc-name">Stockio — Forecast & Sentiment</h3>
         <p class="pc-desc">Multi-ticker dashboard with Prophet/ARIMA/XGBoost forecasts, VADER sentiment, and 93% anomaly detection precision. SHAP explainability for transparent insights.</p>
         <div class="pc-tags"><span class="ptag">Prophet</span><span class="ptag">XGBoost</span><span class="ptag">Streamlit</span><span class="ptag">SHAP</span></div>
-        <div class="pc-exp"><button class="pc-tog" onclick="tgl(this)"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg> Details</button><div class="pc-det"><ul><li><strong>93% anomaly detection precision</strong> via ensemble forecasting with guardrails.</li><li>Cache-aware pipeline; deployed via Azure DevOps to Hugging Face Spaces.</li><li>SHAP explainability for transparent, risk-aware stakeholder visualizations.</li></ul></div></div>
+        <div class="pc-exp"><button class="pc-tog" onclick="tgl(this); gtag('event', 'project_view', {'event_label': 'stockio'})"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg> Details</button><div class="pc-det"><ul><li><strong>93% anomaly detection precision</strong> via ensemble forecasting with guardrails.</li><li>Cache-aware pipeline; deployed via Azure DevOps to Hugging Face Spaces.</li><li>SHAP explainability for transparent, risk-aware stakeholder visualizations.</li></ul></div></div>
       </div>
     </div>
     <div class="pc r">
@@ -959,7 +970,7 @@ footer {
         <h3 class="pc-name">RAG-QA over SEC Filings</h3>
         <p class="pc-desc">CPU-only RAG using MiniLM + FAISS. Automates EDGAR ingestion for Risk & MD&A sections, returning citation-grounded extractive answers.</p>
         <div class="pc-tags"><span class="ptag">FAISS</span><span class="ptag">MiniLM</span><span class="ptag">EDGAR</span><span class="ptag">RAG</span></div>
-        <div class="pc-exp"><button class="pc-tog" onclick="tgl(this)"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg> Details</button><div class="pc-det"><ul><li>Automated pipeline ingesting Risk Factor & MD&A sections from SEC 10-K filings.</li><li>Every answer includes a <strong>citation-grounded source passage</strong> for verifiability.</li><li>BLEU/ROUGE evaluation. Fully CPU-based — no GPU required.</li></ul></div></div>
+        <div class="pc-exp"><button class="pc-tog" onclick="tgl(this); gtag('event', 'project_view', {'event_label': 'rag_qa'})"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg> Details</button><div class="pc-det"><ul><li>Automated pipeline ingesting Risk Factor & MD&A sections from SEC 10-K filings.</li><li>Every answer includes a <strong>citation-grounded source passage</strong> for verifiability.</li><li>BLEU/ROUGE evaluation. Fully CPU-based — no GPU required.</li></ul></div></div>
       </div>
     </div>
     <div class="pc r d1">
@@ -969,7 +980,7 @@ footer {
         <h3 class="pc-name">Drift-Aware Fraud Detection</h3>
         <p class="pc-desc">Recall-optimized pipeline on 280K+ transactions. PSI drift tracking with adaptive threshold recalibration restoring ~25% recall on drifting streams.</p>
         <div class="pc-tags"><span class="ptag">XGBoost</span><span class="ptag">PSI Drift</span><span class="ptag">SMOTE</span><span class="ptag">Scikit-learn</span></div>
-        <div class="pc-exp"><button class="pc-tog" onclick="tgl(this)"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg> Details</button><div class="pc-det"><ul><li><strong>83% recall</strong> at 0.17% fraud rate using prequential time-ordered evaluation.</li><li>Adaptive recalibration restores ~25% recall; keeps manual review under <strong>&lt;1%</strong>.</li><li>SMOTE vs class-weight analysis: class weights superior for PCA features.</li></ul></div></div>
+        <div class="pc-exp"><button class="pc-tog" onclick="tgl(this); gtag('event', 'project_view', {'event_label': 'fraud_detection'})"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg> Details</button><div class="pc-det"><ul><li><strong>83% recall</strong> at 0.17% fraud rate using prequential time-ordered evaluation.</li><li>Adaptive recalibration restores ~25% recall; keeps manual review under <strong>&lt;1%</strong>.</li><li>SMOTE vs class-weight analysis: class weights superior for PCA features.</li></ul></div></div>
       </div>
     </div>
     <div class="pc r d2">
@@ -979,7 +990,7 @@ footer {
         <h3 class="pc-name">Speech Emotion Recognition</h3>
         <p class="pc-desc">Audio → MFCC maps → CNN/RNN classifier. Real-time prediction via mic or .wav with confidence scores per emotion class. Deployed on Hugging Face Spaces.</p>
         <div class="pc-tags"><span class="ptag">Librosa</span><span class="ptag">MFCC</span><span class="ptag">PyTorch</span><span class="ptag">Gradio</span></div>
-        <div class="pc-exp"><button class="pc-tog" onclick="tgl(this)"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg> Details</button><div class="pc-det"><ul><li>Hybrid CNN-RNN on MFCC + mel-spectrogram features via Librosa.</li><li>Real-time prediction with <strong>confidence scores</strong> per emotion class.</li><li>Confusion matrix error analysis for robust multi-class debugging.</li></ul></div></div>
+        <div class="pc-exp"><button class="pc-tog" onclick="tgl(this); gtag('event', 'project_view', {'event_label': 'speech_emotion'})"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg> Details</button><div class="pc-det"><ul><li>Hybrid CNN-RNN on MFCC + mel-spectrogram features via Librosa.</li><li>Real-time prediction with <strong>confidence scores</strong> per emotion class.</li><li>Confusion matrix error analysis for robust multi-class debugging.</li></ul></div></div>
       </div>
     </div>
   </div>
@@ -1075,9 +1086,9 @@ footer {
         <p class="cc-sub">Graduating May 2026. Actively seeking full-time Data Scientist, ML Engineer, and Applied AI roles. Or just use the chat assistant below it knows everything about me!</p>
         <div class="cc-links">
           <a href="mailto:adeshp61@asu.edu" class="cc-link"><span class="cc-icon">✉️</span><div class="cc-info"><span class="cc-lbl">Email</span><span class="cc-val">adeshp61@asu.edu</span></div><span class="cc-arr">→</span></a>
-          <a href="https://www.linkedin.com/in/aniketdeshpande791" target="_blank" class="cc-link"><span class="cc-icon">💼</span><div class="cc-info"><span class="cc-lbl">LinkedIn</span><span class="cc-val">Aniket Deshpande</span></div><span class="cc-arr">→</span></a>
-          <a href="https://github.com/Aniket19j8" target="_blank" class="cc-link"><span class="cc-icon">💻</span><div class="cc-info"><span class="cc-lbl">GitHub</span><span class="cc-val">View Code & Repos</span></div><span class="cc-arr">→</span></a>
-          <a href="assets/Aniket_Deshpande_AI & DataScientist_resume.pdf" target="_blank" class="cc-link"><span class="cc-icon">📄</span><div class="cc-info"><span class="cc-lbl">Resume</span><span class="cc-val">Download PDF</span></div><span class="cc-arr">→</span></a>
+          <a href="https://www.linkedin.com/in/aniketdeshpande791" target="_blank" class="cc-link" onclick="gtag('event', 'linkedin_click', {'event_category': 'outbound'})"><span class="cc-icon">💼</span><div class="cc-info"><span class="cc-lbl">LinkedIn</span><span class="cc-val">Aniket Deshpande</span></div><span class="cc-arr">→</span></a>
+          <a href="https://github.com/Aniket19j8" target="_blank" class="cc-link" onclick="gtag('event', 'github_click', {'event_category': 'outbound'})"><span class="cc-icon">💻</span><div class="cc-info"><span class="cc-lbl">GitHub</span><span class="cc-val">View Code & Repos</span></div><span class="cc-arr">→</span></a>
+          <a href="assets/Aniket_Deshpande_AI & DataScientist_resume.pdf" target="_blank" class="cc-link" onclick="gtag('event', 'resume_download', {'event_category': 'engagement'})"><span class="cc-icon">📄</span><div class="cc-info"><span class="cc-lbl">Resume</span><span class="cc-val">Download PDF</span></div><span class="cc-arr">→</span></a>
         </div>
       </div>
     </div>
